@@ -1,0 +1,13 @@
+EXAMPLE 3
+---------
+Generics Work Only with Reference Types: 
+	-	When we declare an instance of a generic type, the type argument passed to the type parameter must be a reference type. 
+	-	We cannot use primitive data types like int, char.
+	-	Ex: 
+			Test<int> obj = new Test<int>(20); 
+			
+			The above line results in a compile-time error that can be resolved using type wrappers to encapsulate a primitive type. 
+
+	-	But primitive type arrays can be passed to the type parameter because arrays are reference types.
+	-	Ex:
+			ArrayList<int[]> a = new ArrayList<>();

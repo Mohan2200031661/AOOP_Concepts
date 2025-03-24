@@ -1,0 +1,19 @@
+package test;
+
+import java.util.*;
+
+public class GCD {
+	public static void main(String[] args)
+	{
+		int a= 300;
+		int b=120;
+		while(b!=0)
+		{
+			int temp=b;;
+			b=b%a;
+			a=temp;
+		}
+		System.out.println(a);
+	}
+
+}

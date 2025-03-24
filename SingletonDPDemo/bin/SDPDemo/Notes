@@ -1,0 +1,16 @@
+Singleton DP:
+-> This pattern involves a single class which is responsible to create an object while making sure that only single object gets created. 
+-> This class provides a way to access its only object which can be accessed directly without need to instantiate the object of the class furthermore.
+
+Example:
+
+-> We're going to create a SingleObject class. SingleObject class have its constructor as private and have a static instance of itself.
+-> SingleObject class provides a static method to get its static instance to outside world. SingletonPatternDemo, our demo class will use SingleObject class to get a SingleObject object.
+-> For depiction, Refer Image in the Source Folder.
+
+
+Steps:
+
+Step 1: Create a Singleton Class (SingleObject.java)
+Step 2: Get the only object from the singleton class. (SingletonPatternDemo.java)
+Step 3: Run

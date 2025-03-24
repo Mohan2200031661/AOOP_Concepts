@@ -1,0 +1,25 @@
+package test;
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+    	Scanner sc=new Scanner(System.in);
+        int num;
+        num=sc.nextInt();
+        sc.next();
+        int count=0;
+        while(num-- >0);
+        {
+        	if(sc.next()=="++x" || sc.next()=="x++")
+        	{
+        		count++;
+        	}
+        	else
+        	{
+        		count--;
+        	}
+        }
+        
+    }
+}

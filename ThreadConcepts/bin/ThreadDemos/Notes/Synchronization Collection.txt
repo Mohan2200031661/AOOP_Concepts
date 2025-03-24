@@ -1,0 +1,86 @@
+ 									Synchronous Collection
+
+ 
+1)Synchronization collections by default if you see any implementation like list,set or map
+those are by default not the synchronized.
+
+2)Except in the case of list implementation vector and in the case 
+of map it is a hash table so these are the two collection implementations which provides by default synchronization
+concept that is thread safe.
+
+3) Other than these two remaining collection elements are not synchronized by default the 
+reason behind it is when you apply this synchronization mechanism for any collection the performance of the
+application will go down
+ 
+4) Because the in the multi-threaded environment only one thread at a time it can access 
+that objects hence collection by default it does not provide synchronization concept for the collections but Java 
+probably find another flexibility to make our collection objects to become is thread safe.
+
+-> When a thread is already working on an object and preventing another thread on working 
+on the same object. This process is called Thread-Safety.
+
+-> Synchronization in java is the capability to control the access of multiple threads to any shared resource.
+
+Code:-
+
+
+package Sunny;
+import java.util.ArrayList;
+import java.util.Collections;
+public class Synco
+{
+	public static void main(String[] args)
+	{
+		ArrayList<String> a=new ArrayList<String>();
+		a.add("Suraj");
+		a.add("Rohith");
+		a.add("Venky");
+		a.add("Manoj");
+		a.add("Bhanu");
+		Collections.synchronizedList(a);
+		
+		for(String b:a)
+		System.out.println(b);
+	}
+}
+
+2)Map:-
+
+package Sunny;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Set;
+public class Synco
+{
+	public static void main(String[] args)
+	{
+		Map<Integer,String> a=new HashMap<Integer,String>();
+		a.put(404,"Suraj");
+		a.put(432,"Rohith");
+		a.put(420,"Venky");
+		a.put(350,"Manoj");
+		a.put(449,"Bhanu");
+		Collections.synchronizedMap (a);
+		
+		Set<Map.Entry<Integer,String> b=a.entrySet();
+
+		for(Map.Entry<Integer,String> c : b)
+		{
+			System.out.println("Id No:-"+c.getKey());
+			System.out.println("Name:-"+c.getValue());
+		}
+	}
+}
+
+Note and code explaination:-
+
+     ArrayList is not the synchronized but vector is synchronized so that means it is thread safe so now I want to
+make my ArrayList class as synchronized.
+     If you apply the synchronized concept to the collections it will degrade the performance as you've only one thread 
+at a time it can access the resources.
+
+Overview Points:-
+
+-->Code is thread safe if it only manipulates shared data structures in a manner that avoids race conditions by 
+multiple concurrent threads.
+

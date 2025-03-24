@@ -1,0 +1,94 @@
+How to use a Semaphore in Java with code examples  
+Introduction:
+
+This article shows you how to use a semaphore in your code. 
+Then, using examples, I will explain what a Semaphore is and how you can use them.
+
+The quick answer:
+public class UsingSemaphores {
+
+    // creating a Semaphore
+    Semaphore s = new Semaphore(10);
+
+    // Multiple threads call this method on the same/shared instance of "UsingSemaphores"
+    public void UsingSemaphore() throws InterruptedException {
+
+        // acquire the permit
+        s.acquire();
+
+        // Code that runs inside
+        // the acquired lock/permit
+
+        // Release the permit you acquired
+        s.release();
+
+    }
+}
+
+It is important to note that every thread uses the same semaphore instance. 
+For example, with the previous example, you want to pass an instance of UsingSemaphores to every thread. 
+So don't create an UsingSemaphores for each thread.
+
+What is a Semaphore?
+A semaphore is a class you can use to control the number of threads accessing a given resource. 
+For example, you can use a semaphore to shield a part of your code so only five threads can access it continously.
+
+A semaphore in Java holds a number of permits. 
+When a thread obtains a permit, it can continue to run the code shielded by the semaphore. 
+With a semaphore, you can be sure that there aren't more threads running the shielded-off code than there are permits. When there are no more permits lefts for the semaphore to give away, a thread must wait until they are available again. When is thread is done with its permit, it can choose to release the permit back to the semaphore; then, another thread can use it.
+
+How to create a Semaphore:
+The first step is to create a semaphore which is very easy. 
+In the following example, we create two semaphores. The first semaphore we create has five permits it can give to threads. In the second semaphore, we create acts fair with its permits. When a permit becomes available, the thread waiting for the longest for a permit will get it.
+
+// Semaphore with 5 permits 
+Semaphore semaphoreWithFivePermits = new Semaphore(5);
+
+// A fair Semaphore with 5 permits
+Semaphore semaphoreThatIsFair = new Semaphore(5, true);
+
+
+
+
+Acquire a permit:
+When you create a semaphore, the next thing you want to do is to acquire a permit. 
+To do so, you can use the acquire methods. 
+The following example shows you four common ways to acquire a permit. 
+It's important to note that tryAcquire() will ignore the fairness setting of a semaphore.
+
+// Acquire one permit
+semaphoreWithFivePermits.acquire();
+
+// Acquire four permits
+semaphoreWithFivePermits.acquire(4);
+
+// Will try to immediately get a permit, and it ignores fairness
+semaphoreWithFivePermits.tryAcquire();
+
+// Will wait to acquire a permit for five seconds
+semaphoreWithFivePermits.tryAcquire(5, TimeUnit.SECONDS);
+
+
+Acquire all available permits:
+It is also possible to claim all the available permits. 
+To do so, you need to use the drainPermits(). 
+Also this method ignores the fairness setting and immediately claims all permits.
+
+// claim all available permits
+int numberOfPermitsClaimed = semaphoreWithFivePermits.drainPermits();
+
+// Release all claimed permits
+semaphoreWithFivePermits.release(numberOfPermitsClaimed);
+
+Release a permit:
+When you have a permit, it is important to release it; 
+else, the semaphore can never give the permit to another thread. 
+Releasing is very straightforward. 
+All you have to do is call the release() method. 
+You must never release more permits than you hold.
+
+// Releases a single permit
+semaphoreWithFivePermits.release();
+
+// releases multiple permits at once
+semaphoreWithFivePermits.release(4);

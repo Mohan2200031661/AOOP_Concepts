@@ -1,0 +1,38 @@
+we have two sets, i.e., set1 = [22, 45, 33, 66, 55, 34, 77] and 
+set2 = [33, 2, 83, 45, 3, 12, 55]. 
+We can perform the following operation on the Set:
+
+Intersection: 
+	The intersection operation returns all those elements which are present 
+	in both the set. 
+	The intersection of set1 and set2 will be [33, 45, 55].
+	
+Union: 
+	The union operation returns all the elements of set1 and set2 in a 
+	single set, and that set
+	 can either be set1 or set2. 
+	 
+	The union of set1 and set2 will be 
+	[2, 3, 12, 22, 33, 34, 45, 55, 66, 77, 83].
+	
+Difference: 
+	The difference operation deletes the values from the set which are 
+	present in another set. 
+	The difference of the set1 and set2 will be [66, 34, 22, 77].
+	
+	addAll() method is used to perform the union, 
+	retainAll() method is used to perform the intersection and 
+	removeAll() method is used to perform difference.
+	
+	
+Set Methods:
+1. boolean add(Element e) - s1.add(18);
+2. boolean addAll(Collection data) - s1,s2 - s1.addAll(s1)
+3. clear()
+4. contains(Element e) - s1.contains(18)
+5. containsAll(Collection data) - s1.containsAll(s2)
+6. boolean isEmpty()
+7. boolean remove(Element e)
+8. boolean removerAll(Collection data)
+9. boolean retainAll(Collection data)
+10. int size() 

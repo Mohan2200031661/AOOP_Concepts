@@ -1,0 +1,18 @@
+package test;
+
+public class GCD {
+	public static void main(String[] args)
+	{
+		int a=48;
+		int b=128;
+		
+		while(b!=0 )
+		{
+			int temp=b;
+			b=b%a;
+			a=temp;
+		}
+		System.out.println(a);
+	}
+
+}

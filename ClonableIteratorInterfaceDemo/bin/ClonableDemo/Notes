@@ -1,0 +1,43 @@
+Cloneable Interface in Java
+
+The Java.lang.Cloneable interface is a marker interface. 
+It was introduced in JDK 1.0. 
+
+There is a method clone() in the Object class.
+
+ Cloneable interface is implemented by a class to make Object.
+ clone() method valid thereby making field-for-field copy. 
+ 
+ This interface allows the implementing class to have its 
+ objects to be cloned instead of using a new operator. 
+
+Declaration
+
+public interface Cloneable;
+
+
+Example: 1 - Improper Implementation
+Example: 2 - Proper Implementation
+Example: 3 - Deep Copy
+
+
+DeepCopy:
+
+Deep Object Cloning is like creating an exact copy of the 
+original object by copying the fields from 
+the original object to the cloned object. 
+
+A separate memory is allocated for the cloned objects where 
+the original object content is copied. 
+
+clone() method can create both shallow and deep copy of the 
+original object based on the implementation of it.
+
+Deep copy creates a new memory with the contents same as 
+the original object.
+
+That’s why when we change the content of the original object 
+after cloning, the changes do not reflect in
+the clone object.
+
+ 

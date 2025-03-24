@@ -1,0 +1,23 @@
+package test;
+
+public class GCD {
+	public static void main(String[] args)
+	{
+		int a=48;
+		int b=128;
+		
+		while(b!=0 && a<=b)
+		{
+			b=b%a;
+			if(b<a && b!=0)
+			{
+				a=a+b;
+				b=a-b;
+				a=a-b;
+			}
+		}
+		
+		System.out.println(a);
+	}
+
+}
